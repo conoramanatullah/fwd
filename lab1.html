@@ -1,0 +1,63 @@
+<html lang="en" >
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Angular Material style sheet -->
+  <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+  <link rel="stylesheet" href="css/animate.css">
+</head>
+<body ng-app="lab1App" ng-cloak>
+
+  <md-toolbar class="">
+    <div class="md-toolbar-tools">
+      <span>Lab 1</span>
+      <span flex></span>
+      <span>Conor Amanatullah</span>
+    </div>
+  </md-toolbar>
+
+  <md-content layout-padding ng-controller="mainController" class="animated bounceInLeft">
+
+    <div class="">
+      <h2>Please enter your name and favorite color. </h2>
+    </div>
+
+    <md-input-container>
+      <label>Name</label>
+      <input type="text" ng-model="name">
+    </md-input-container>
+
+    <md-input-container>
+      <label>Favorite color?</label>
+      <input type="text" ng-model="color">
+    </md-input-container>
+
+    <div ng-if="name && color" style="color:white ;background-color: {{ color }}" class="md-whiteframe-z1 ">
+      Hello, {{ name }}
+    </div>
+  </md-content>
+
+  <!-- AngularJS -->
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+
+  <!-- Angular Material Library -->
+  <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+
+  <script type="text/javascript">
+
+    angular.module('lab1App', ['ngMaterial'])
+
+    .controller('mainController', function($scope, $mdMedia){
+      // Variables
+      $scope.name;
+      $scope.color;
+
+    });
+
+
+  </script>
+
+</body>
+</html>
