@@ -4,8 +4,15 @@
   <!-- Angular Material style sheet -->
   <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
   <link rel="stylesheet" href="css/animate.css">
+  <title>Lab 1 - Angular</title>
+  <style media="screen">
+    .container{
+      margin: 0 auto;
+      width: 60vw;
+    }
+  </style>
 </head>
-<body ng-app="lab1App" ng-cloak>
+<body ng-app="lab1App" ng-cloak ng-controller="mainController">
 
   <md-toolbar class="">
     <div class="md-toolbar-tools">
@@ -15,25 +22,33 @@
     </div>
   </md-toolbar>
 
-  <md-content layout-padding ng-controller="mainController" class="animated bounceInLeft">
+  <md-content layout-padding  class="animated slideInLeft">
 
-    <div class="">
-      <h2>Please enter your name and favorite color. </h2>
+
+    <div class="container">
+      <div class="">
+        <h2>Please enter your name and favorite color. </h2>
+      </div>
+      <md-input-container class="md-accent">
+        <label>Name</label>
+        <input type="text" ng-model="user.name">
+      </md-input-container>
+
+      <md-input-container class="md-accent">
+        <label>Favorite color?</label>
+        <input type="text" ng-model="user.color">
+      </md-input-container>
+
+      <div ng-if="user.name && user.color" style="color:white ;background-color: {{ user.color }}" class="md-whiteframe-z1 ">
+        Hello, {{ user.name }}
+      </div>
+
+      <!-- User Object -->
+      <pre>
+        {{ user }}
+      </pre>
     </div>
 
-    <md-input-container>
-      <label>Name</label>
-      <input type="text" ng-model="name">
-    </md-input-container>
-
-    <md-input-container>
-      <label>Favorite color?</label>
-      <input type="text" ng-model="color">
-    </md-input-container>
-
-    <div ng-if="name && color" style="color:white ;background-color: {{ color }}" class="md-whiteframe-z1 ">
-      Hello, {{ name }}
-    </div>
   </md-content>
 
   <!-- AngularJS -->
@@ -48,11 +63,17 @@
   <script type="text/javascript">
 
     angular.module('lab1App', ['ngMaterial'])
-
+    // Theme Config
+    .config(function($mdThemingProvider){
+      $mdThemingProvider.theme('default')
+        .primaryPalette('blue')
+        .accentPalette('pink')
+    })
+    // Controllers
     .controller('mainController', function($scope, $mdMedia){
       // Variables
-      $scope.name;
-      $scope.color;
+      // $scope.user.name;
+      // $scope.user.color;
 
     });
 
