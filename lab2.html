@@ -8,6 +8,7 @@
     #broncos{
       display: none;
       overflow: hidden;
+      margin-top: 10vh;
     }
     #broncos img{
       max-width: 60vw;
@@ -33,7 +34,7 @@
   </md-toolbar>
 
   <md-content layout-padding class="container animated bounceInLeft">
-    <h2>Change Header Text Color!</h2>
+    <h2 class="">Change Header Text Color!</h2>
 
     <md-input-container class="md-accent">
       <label>Header Text Color</label>
@@ -63,8 +64,8 @@
     angular.module('BlankApp', ['ngMaterial'])
     .config(function($mdThemingProvider){
       $mdThemingProvider.theme('default')
-        // .primaryPalette('blue')
-        // .accentPalette('orange')
+        .primaryPalette('blue')
+        .accentPalette('pink')
     })
     .controller('mainController', function($scope){
           $scope.updateHeader = function(){
