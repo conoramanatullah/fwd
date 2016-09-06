@@ -1,0 +1,89 @@
+<html lang="en" >
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Angular Material style sheet -->
+  <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+</head>
+<body ng-app="Lab3" ng-cloak ng-controller="mainController">
+
+  <md-toolbar >
+    <div id="header" class="md-toolbar-tools">
+      <span>Lab 3</span>
+      <span flex></span>
+      <span id="user">Conor Amanatullah</span>
+    </div>
+  </md-toolbar>
+  <md-content layout-padding>
+    <h2>Conditional Playground</h2>
+    <h3>Type in your favorite vegetable!</h3>
+
+    <div  ng-if="toggle1">
+      <h3>Whats your favorite vegetable?</h3>
+      <h4 ng-if="toggle2">Okay.... try {{ vegetableRandom }}</h4>
+      <md-button class="md-raised" ng-model="toggle2" ng-click="toggle2 = true">idk?</md-button>
+    </div>
+
+
+    <br>
+    <md-input-container>
+      <label>Vegetable</label>
+      <input type="text" ng-model="veggie">
+    </md-input-container>
+    <md-button class="md-raised" ng-model="submit" ng-click="submitVeggie();">Show me a {{ veggie }}</md-button>
+    <md-button class="" ng-model="toggle1" ng-click="toggle1 = true">Hint?</md-button>
+
+    <div ng-if="toggleVeggies">
+      <img src="{{ veggieUrl }}" alt="" />
+    </div>
+  </md-content>
+
+  <!-- Angular Material requires Angular.js Libraries -->
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+
+  <!-- Angular Material Library -->
+  <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+
+  <!-- Your application bootstrap  -->
+  <script type="text/javascript">
+    angular.module('Lab3', ['ngMaterial'])
+    .controller('mainController', function($scope){
+      // if()
+      var random = Math.random() * 2;
+      random =  Math.floor(random);
+      console.log(random);
+      $scope.veggies = [
+        "img/carrots.jpg",
+        "img/potato.jpg"
+      ];
+      var randomVeggie = [
+        "Carrot",
+        "Potato"
+      ];
+
+      $scope.vegetableRandom = randomVeggie[random]
+
+
+
+      $scope.submitVeggie = function(){
+        if($scope.veggie == "Carrot" || $scope.veggie == "carrot"){
+          console.log("ayy carrots")
+          $scope.toggleVeggies = true;
+          $scope.veggieUrl = "img/carrots.jpg"
+        }
+        else if($scope.veggie == "Potato" || $scope.veggie == "potato"){
+          console.log("ayy potatos")
+          $scope.toggleVeggies = true;
+          $scope.veggieUrl = "img/potato.jpg"
+        }
+      };
+
+
+
+    });
+  </script>
+
+</body>
+</html>
