@@ -1,0 +1,92 @@
+<html lang="en" >
+<head>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+  <title>Lab 4</title>
+
+  <style media="screen">
+
+    md-content {
+      /*background-color: yellow;*/
+    }
+
+
+  </style>
+</head>
+<body ng-app="Lab4" ng-cloak ng-controller="mainController">
+  <md-toolbar >
+    <div id="header" class="md-toolbar-tools">
+      <span>Lab 4</span>
+      <span flex></span>
+      <span id="user">Conor Amanatullah</span>
+    </div>
+  </md-toolbar>
+
+  <md-content layout-padding>
+    <h1>Math Quiz</h1>
+    <h2>Tries : {{ tries }}</h2>
+    <h1>{{ num1 }} + {{ num2 }} = {{ answer }}?</h1>
+
+    <md-input-container>
+      <label>Answer</label>
+      <input type="text" ng-model="answer">
+    </md-input-container>
+
+    <md-button class="md-raised md-accent" ng-click="submit()" ng-disabled="!(tries>0)">Submit</md-button>
+    <h1 ng-if="tries == 0 ">Out of tries, you're a dummy.</h1>
+    <h2 ng-if="5 > tries > 0" ng-hide="correct">Whoops. Try Again.</h2>
+    <h1 ng-if="correct">Correct!</h1>
+  </md-content>
+
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+
+  <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+
+  <script type="text/javascript">
+
+    angular.module('Lab4', ['ngMaterial'])
+
+    .controller('mainController', function($scope){
+      // Math Quiz
+      // Generate two random numbers, calculate the sum
+      //  print numbers to screen, ask user to guess answer
+
+      function randomNumber(r){
+        var n = (Math.random() * r) + 1;
+        n = Math.floor(n);
+        return n;
+      };
+      $scope.tries = 5;
+      $scope.num1 = randomNumber(10);
+      $scope.num2 = randomNumber(10);
+      $scope.sum = $scope.num1 + $scope.num2;
+
+      $scope.submit = function(){
+        // Check if users answer = sum
+        // if not then subtract amount of tries by 1
+        var answer = eval($scope.answer);
+
+        if($scope.answer == $scope.sum){
+          console.log("Correct");
+          $scope.correct = true;
+        }
+        else {
+          console.log("Not Correct LMAO");
+          $scope.tries--;
+        }
+      };
+
+
+
+
+
+    });
+
+  </script>
+
+</body>
+</html>
