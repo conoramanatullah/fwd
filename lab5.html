@@ -1,0 +1,108 @@
+<html lang="en" >
+<head>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+  <link rel="stylesheet" href="css/animate.css">
+
+  <title>Lab 5</title>
+
+  <style type="text/css">
+    #container {
+      width: 70vw;
+      margin: 0 auto;
+    }
+    #squares-container {
+      margin-top: 10vw;
+    }
+
+    #squares-container .square {
+      display: inline-block;
+      margin: 10px;
+      width: 5vw;
+      height: 5vw;
+      background-color: blue;
+    }
+    .active-square {
+      background-color: red;
+    }
+  </style>
+
+</head>
+<body ng-app="Lab5" ng-controller="MainController"  ng-cloak>
+
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <span >Lab 5</span>
+      <span flex></span>
+      <span >Conor Amanatullah</span>
+    </div>
+  </md-toolbar>
+
+  <md-content layout-padding>
+    <!-- Animated Squares-->
+    <div id="container">
+      <h1>Animated Squares - </h1>
+      <h2>Using Animate.css</h2>
+      <p>
+        Touch Squares to activate them!
+      </p>
+      <div id="squares-container">
+        <div class="square" id="square-1" ng-click="activate('#square-1')"></div>
+        <div class="square" id="square-2" ng-click="activate('#square-2')"></div>
+        <div class="square" id="square-3" ng-click="activate('#square-3')"></div>
+        <div class="square" id="square-4" ng-click="activate('#square-4')"></div>
+        <div class="square" id="square-5" ng-click="activate('#square-5')"></div>
+        <div class="square" id="square-6" ng-click="activate('#square-6')"></div>
+        <div class="square" id="square-7" ng-click="activate('#square-7')"></div>
+        <div class="square" id="square-8" ng-click="activate('#square-8')"></div>
+      </div>
+      <div flex>
+        <md-button class="md-raised md-accent" ng-click="animate('bounce')">Bounce</md-button>
+        <md-button class="md-raised md-accent" ng-click="animate('jello')">Jello</md-button>
+        <md-button class="md-raised md-accent" ng-click="animate('fadeOut')">Fade Out</md-button>
+        <md-button class="md-raised md-accent" ng-click="animate('hinge')">Hinge</md-button>
+      </div>
+    </div>
+
+  </md-content>
+
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+  <script   src="https://code.jquery.com/jquery-3.1.0.js"   integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk="   crossorigin="anonymous"></script>
+  <script type="text/javascript">
+
+    angular.module('Lab5', ['ngMaterial'])
+
+    .controller('MainController',function($scope){
+      // Each square will be inside an array.
+      $scope.squares = [];
+
+      $scope.activate = function(id){
+        $scope.squares.push(id);
+        console.log($scope.squares);
+        var color = $(id).css('background-color','red');
+      };
+
+      $scope.animate = function(animation){
+        // Loop through the array, apply the classes
+        for(i = 0; i < $scope.squares.length; i++){
+          // Use JQuery to apply a class.
+          console.log("animating " + $scope.squares[i])
+          $($scope.squares[i]).addClass('animated');
+          $($scope.squares[i]).addClass(animation);
+        };
+        // End For
+      };
+
+
+
+
+    });
+  </script>
+
+</body>
+</html>
