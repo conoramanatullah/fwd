@@ -1,0 +1,16 @@
+Algorithm - Chores
+
+1. List out amount of time each chore will take, figure out amount of time
+    available to actually do chores
+
+2. Prioritize chores into a list organized from shortest to longest.
+
+3. If total time for chores is greater than time available, add shortest
+    chores to list of chores to accomplish within time constraints.
+  Else, add all chores to list.
+
+3. Complete a chore, check list for next chore
+
+4. If chore, repeat step 3.
+
+5. After relax
