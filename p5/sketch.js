@@ -1,6 +1,10 @@
 // ********** Setup ****************
 function setup(){
-  createCanvas(640, 480);
+
+  var w = window.innerWidth;
+  var h = window.innerHeight;
+
+  createCanvas(w, h);
 
 }
 
