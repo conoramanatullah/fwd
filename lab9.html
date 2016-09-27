@@ -1,0 +1,126 @@
+<html lang="en" >
+<head>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+  <link rel="stylesheet" href="css/animate.css">
+
+  <title>Lab 9</title>
+
+  <link rel="stylesheet" href="css/lab9.css">
+
+</head>
+<body ng-app="Lab9" ng-controller="MainController"  ng-cloak>
+
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <span >Lab 9</span>
+      <span flex></span>
+      <span >Conor Amanatullah</span>
+    </div>
+  </md-toolbar>
+
+  <md-content layout-padding>
+    <span id="lab-title"><h1>Pizza Order Form</h1></span>
+
+    <form name="pizza-form" ng-if="!submitted">
+
+      <md-input-container class="md-block">
+        <label>Your Name</label>
+        <input ng-model="user.name">
+      </md-input-container>
+
+      <div layout="row" flex>
+
+        <md-input-container flex="25">
+          <label>When?</label>
+          <md-datepicker ng-model="user.deliveryDate"></md-datepicker>
+        </md-input-container>
+
+        <md-input-container flex="20">
+          <label>What time?</label>
+          <input ng-model="user.deliveryTime">
+        </md-input-container>
+
+      </div>
+
+      <div layout="row" flex>
+        <md-input-container flex="20">
+          <label>Pick A Pizza</label>
+          <md-select ng-model="user.pizza.type">
+              <md-option ng-repeat="pizza in pizzas"  value="{{pizza}}">
+                {{pizza}}
+              </md-option>
+          </md-select>
+        </md-input-container>
+
+        <md-input-container flex="20">
+          <label>Topping 1</label>
+          <md-select ng-model="user.pizza.topping1">
+              <md-option ng-repeat="topping in toppings"  value="{{topping}}">
+                {{topping}}
+              </md-option>
+          </md-select>
+        </md-input-container>
+
+        <md-input-container flex="20">
+          <label>Topping 2</label>
+          <md-select ng-model="user.pizza.topping2">
+              <md-option ng-repeat="topping in toppings"  value="{{topping}}">
+                {{topping}}
+              </md-option>
+          </md-select>
+        </md-input-container>
+
+      </div>
+
+      <div layout="row">
+
+        <md-radio-group ng-model="user.drink" flex>
+
+          <md-radio-button ng-repeat="drink in drinks" ng-value="drink" aria-label="{{ drink }}">
+
+            {{ drink }}
+
+          </md-radio-button>
+
+        </md-radio-group>
+
+        <md-input-container flex>
+          <label>Additional Instructions</label>
+          <textarea ng-model="user.instructions" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+        </md-input-container>
+      </div>
+
+      <div layout="row">
+        <md-button type="submit" class="md-accent md-raised" ng-click="submitOrder()" ng-disabled="!( user.name && user.deliveryDate && user.deliveryTime && user.pizza.type)">Order</md-button>
+      </div>
+
+      <div ng-if="submitted">
+        <h2>Your Order</h2><br>
+        <h3>Name: {{ user.name }}</h3>
+        <h3>Date: {{ user.deliveryDate }}</h3>
+        <h3>Time: {{ user.deliveryTime }}</h3>
+        <h3>Pizza: {{user.pizza.type}} , Toppings: {{ user.pizza.topping1 }} , {{ user.pizza.topping2 }}</h3>
+        <h3>Drink: {{ user.drink }}</h3>
+        <p>
+          Additional instructions : {{user.instructions}}
+        </p>
+      </div>
+
+    </form>
+    <pre>
+      {{ user }}
+    </pre>
+  </md-content>
+
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.1.0.js"   integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk="   crossorigin="anonymous"></script>
+
+  <script type="text/javascript" src="js/lab9.js"></script>
+</body>
+</html>
