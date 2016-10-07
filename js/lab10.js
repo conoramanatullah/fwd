@@ -6,13 +6,7 @@
 
   });
 
-
-
 })();
-
-
-
-
 
 var map;
 
@@ -36,7 +30,7 @@ function initMap() {
     marker = new google.maps.Marker({
       position: {lat: LATITUDE, lng: LONGITUDE},
       map: map,
-      title: "Your Location"
+      title: "Ayyy lmao"
     });
 
 
