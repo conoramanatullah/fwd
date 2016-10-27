@@ -11,8 +11,10 @@
                   'https://i.imgur.com/yho9pgM.jpg',
                   'http://i1.kym-cdn.com/photos/images/facebook/000/632/613/42d.jpg'
                   ];
-
     var index = 0;
+    var sepia = false;
+    var invert = false;
+    var hue = false;
     $('#slideshow').on('click', function(){
       var image = $('#slideshow #image img');
       if(index == images.length - 1){
@@ -24,9 +26,6 @@
         image.attr('src', images[index]);
       }
     });
-    var sepia = false;
-    var invert = false;
-    var hue = false;
     $('#button1').on('click', function(){
       console.log("button 1 clicked");
       if(sepia){
