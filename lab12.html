@@ -17,28 +17,24 @@
         <div ng-controller="MainController">
           <md-toolbar>
             <div class="md-toolbar-tools">
-              <span >Lab 12</span>
+              <span >Lab 12 + 13</span>
               <span flex></span>
               <span >Conor Amanatullah</span>
             </div>
           </md-toolbar>
           <md-content>
-            <md-button id="button1" class="md-raised" ng-model="button1">Toggle 1</md-button>
-            <md-button id="button2" class="md-raised" ng-model="button2">Toggle 2</md-button>
-            <md-button id="button3" class="md-raised" ng-model="button3">Toggle 3</md-button>
+            <md-button id="open-settings" class="">Settings</md-button>
+            <div id="settings" class="md-whiteframe-z5">
+              <md-button id="button1" class="md-raised md-accent" ng-model="button1" ng-disabled="invert || hue" ng-click="sepia = !sepia">Sepia</md-button>
+              <md-button id="button2" class="md-raised md-accent" ng-model="button2" ng-disabled="sepia || hue" ng-click="invert = !invert">Invert</md-button>
+              <md-button id="button3" class="md-raised md-accent" ng-model="button3" ng-disabled="sepia || invert" ng-click="hue = !hue">Hue</md-button>
+            </div>
 
-            <div id="slideshow">
-              <!-- <div id="left-button">
-                <i class="material-icons">keyboard_arrow_left</i>
-              </div>
-              <div id="right-button">
-                <i class="material-icons">keyboard_arrow_right</i>
-              </div> -->
-              <div id="image" layout>
 
-                <img src="http://i0.kym-cdn.com/photos/images/facebook/000/632/652/6ca.jpg" alt="" />
+            <div id="slideshow" >
+              <div id="image"  layout>
+                <img class="md-whiteframe-z4"   src="http://i0.kym-cdn.com/photos/images/facebook/000/632/652/6ca.jpg" alt="" />
                 <!-- <br> -->
-
               </div>
 
             </div>

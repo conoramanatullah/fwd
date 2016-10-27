@@ -45,6 +45,9 @@ md-content {
   display: block;
   z-index: 1
 }
+#settings {
+  display: none;
+}
 
 
 .sepia {

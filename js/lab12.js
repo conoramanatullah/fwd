@@ -41,5 +41,9 @@
 
     });
 
+    $('#open-settings').on('click', function(){
+      $('#settings').slideToggle(500);
+    })
+
   });
 })();
