@@ -23,8 +23,39 @@
         index++;
         image.attr('src', images[index]);
       }
-
-
+    });
+    var sepia = false;
+    var invert = false;
+    var hue = false;
+    $('#button1').on('click', function(){
+      console.log("button 1 clicked");
+      if(sepia){
+        $('#image img').removeClass('sepia');
+        sepia = false;
+      } else {
+        $('#image img').addClass('sepia');
+        sepia = true;
+      }
+    });
+    $('#button2').on('click', function(){
+      console.log("button 2 clicked");
+      if(invert){
+        $('#image img').removeClass('invert');
+        invert = false;
+      } else {
+        $('#image img').addClass('invert');
+        invert = true;
+      }
+    });
+    $('#button3').on('click', function(){
+      console.log("button 3 clicked");
+      if(hue){
+        $('#image img').removeClass('hue');
+        hue = false;
+      } else {
+        $('#image img').addClass('hue');
+        hue = true;
+      }
     });
 
   });
