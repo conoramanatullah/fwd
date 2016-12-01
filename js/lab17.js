@@ -6,12 +6,20 @@
 
   .controller('MainController', function($scope, Data, User, Auth){
     // Angular stuff
+    $scope.submitMessage = function(user){
+      Data.push(user);
+    };
 
-
+  })
+  .controller('ChatController', function($scope, Data){
+    // Pull data from database
+    Data.on('value', function(snapshot){
+      $scope.data = snapshot.val();
+      console.log(snapshot.val())
+    });
   })
 
   .factory('Data', function(){
-    // Connect to firebase
     const CONFIG = {
       apiKey: "AIzaSyC7Gh2no_l6bH7P8ujOndCB_ItbPo_I0dY",
       authDomain: "fwd-data-b24db.firebaseapp.com",

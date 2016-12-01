@@ -6,9 +6,8 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
-    <!-- <link rel="stylesheet" href="css/lab12.css"> -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="css/lab17.css?v=1.0">
 
     <title>Lab 17</title>
   </head>
@@ -24,6 +23,30 @@
           </md-toolbar>
           <md-content>
 
+            <div id="chat-box" ng-controller="ChatController">
+              <md-card ng-repeat="value in data"></md-card>
+            </div>
+
+            <md-input-container>
+              <label>First</label>
+              <input type="text" name="name" ng-model="user.first">
+            </md-input-container>
+
+            <md-input-container>
+              <label>Last</label>
+              <input type="text" name="name" ng-model="user.last">
+            </md-input-container>
+
+            <br>
+
+            <md-input-container>
+              <label>Message</label>
+              <textarea ng-model="user.message"></textarea>
+            </md-input-container>
+
+            <br>
+
+            <md-button class="md-raised" ng-click="submitMessage(user)">Submit</md-button>
 
           </md-content>
         </div>

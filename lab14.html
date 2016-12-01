@@ -13,7 +13,7 @@
     <title>Lab 14</title>
   </head>
   <body>
-      <div ng-app="Lab12">
+      <div ng-app="Lab14">
         <div ng-controller="MainController">
           <md-toolbar>
             <div class="md-toolbar-tools">
@@ -23,8 +23,12 @@
             </div>
           </md-toolbar>
           <md-content>
+            <p>Even though its super simple, this lab is pulling a json <br>
+              and using an Angular Databind to apply it to the view. 
+            </p>
             <!-- Load from json -->
-
+            {{ data.name }}
+            {{ data.major }}
           </md-content>
         </div>
       </div>

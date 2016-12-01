@@ -1,0 +1,79 @@
+<html lang="en" >
+<head>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+  <title>Project 2 Dashboard</title>
+
+</head>
+<body ng-app="Project1" ng-cloak ng-controller="mainController">
+  <md-toolbar class="">
+    <div class="md-toolbar-tools">
+      <span>Project 3</span>
+      <span flex></span>
+      <span>Conor Amanatullah</span>
+    </div>
+  </md-toolbar>
+
+  <md-content layout-padding>
+    <!-- <md-button class="md-raised"  aria-label="" ng-click="goTo('/milestone1')">Milestone 1</md-button> -->
+    <h1>Brief</h1>
+    <p>
+      This project will be a vinyl record catalogger for my own personal use.
+      I want to be able to capture the records in my collection, and log them
+      into a database that I can keep track of and value my collection. I also
+      want to use the Discogs API and other music db APIs to autofill things
+      like album covers and album information
+    </p>
+    <p>
+      My audience will be anybody with a record collection.
+    </p>
+    <p>
+      This will be a single page app, similar to material design in look and feel.
+      This will be a primarily mobile application, but will work on any screen size
+    </p>
+    <p>
+      My stretch goal would be to implement outside APIs for completing album info
+      and getting value for each record.
+    </p>
+    <p>
+      What the site will include:
+      <md-list>
+        <md-list-item class="md-1-line">
+          Add new album
+          <p>
+            Name, Artist, value, date purchased...
+          </p>
+        </md-list-item>
+
+      </md-list>
+    </p>
+
+  <!-- <h1>Design</h1> -->
+  <!-- <img src="project1.png" style="max-width: 60%" alt="" /> -->
+
+  <p>
+
+  </p>
+  </md-content>
+
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+
+  <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+
+  <script type="text/javascript">
+
+    angular.module('Project1', ['ngMaterial'])
+    .controller('mainController',function(){
+
+    });
+
+
+
+  </script>
+
+</body>
+</html>
